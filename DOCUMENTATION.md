@@ -7,17 +7,17 @@ This API provides endpoints for managing a list of persons. It allows you to cre
 
 ## The UML and E-R Diagram
  
-+---------------------------------------------+
+
 |                  Flask App                  |
 |---------------------------------------------|
 | - app: Flask                                |
 | - db: SQLAlchemy                           |
 | - limiter: Limiter                         |
-+---------------------------------------------+
+
         |
         | creates
         |
-+---------------------------------------------+
+
 |                  Person                     |
 |---------------------------------------------|
 | - id: Integer                               |
@@ -25,41 +25,35 @@ This API provides endpoints for managing a list of persons. It allows you to cre
 | - age: Integer (optional)                   |
 | - email: String                             |
 |---------------------------------------------|
-| + __init__(name, age, email): Person        |
-| +-------------------------------------------+
+|  __init__(name, age, email): Person        |
+
         |
         | extends
         |
-+---------------------------------------------+
 |                PersonForm                   |
 |---------------------------------------------|
 | - name: StringField                         |
 | - age: IntegerField (optional)              |
 | - email: StringField                        |
 |---------------------------------------------|
-| + validate(): boolean                       |
-| +-------------------------------------------+
+|  validate(): boolean                       |
+
         |
         | is used by
         |
-+---------------------------------------------+
 |                  Limiter                    |
 |---------------------------------------------|
 | - app: Flask                                |
 | - default_limits: List                      |
 |---------------------------------------------|
-| + limit(rate_limit): Decorator              |
-+---------------------------------------------+
-
-
+|  limit(rate_limit): Decorator              |
 
 
 
 
 ## Base URL
 
-The base URL for all endpoints is `http://localhost:5000/api`. Replace `localhost` with the appropriate domain if hosted on a server.
-
+The base URL for all endpoints is `http://localhost:5000/api`. 
 ## Standard Request and Response Formats
 
 ### Create a New Person (POST /api)
