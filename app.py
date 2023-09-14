@@ -90,7 +90,7 @@ def delete_person(user_id):
     db.session.commit()
     return jsonify({"message": "Person removed"}), 200
 
-# Retrieve details of a person by name
+# Retrieve details of a person by the name
 @app.route('/api/person', methods=['GET'])
 def get_person_by_name():
     name = request.args.get('name')
