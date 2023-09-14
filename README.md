@@ -1,44 +1,66 @@
-# HNGi-Stage2-REST-API
+# RESTful Person API
 
-# Set Up
-- Clone this repository : `gitclone 'repo's url'`
-- Install flask 
-- Setup a mongodb instance at <a href="https://cloud.mongodb.com/"> Mongodb atlas </a> or using a local instance of Mongodb 
-- create a .env file with the following fields:
-    - MONGODB_CONNECTION_URL = `'Mongodb connection Url'`
-    - PORT = `'desired port number'`
+A simple RESTful API for managing person records.
 
-# Run
- - Open terminal and run `nodemon server.js` or `node server.js`
- - `nodemon server.js` would authomatically refresh the server when changes are made to *.js files
- - `node server.js`  would start up the server but you would need to restart the server when you make changes
+## Table of Contents
 
- # Diagrams
--  <a href ="https://drive.google.com/file/d/1Bu-QNSPIKMDI1RN8MjQqqZ5OZs_c0S9m/view?usp=sharing"> UML Diagram </a>
-- <a href = "https://github.com/ayhameed/HNGi-REST-API/blob/main/DOCUMENTATION.md"> Complete API documentation</a>
- 
+- [Endpoints](#endpoints)
+  - [Get a Person by ID](#get-a-person-by-id)
+  - [Update a Person by ID](#update-a-person-by-id)
+  - [Delete a Person by ID](#delete-a-person-by-id)
+- [Known Limitations and Assumptions](#known-limitations-and-assumptions)
+- [Local Setup and Deployment](#local-setup-and-deployment)
 
-# The  API
-- ### CREATE Person (POST)
-    - Route : `/api`
-    - HTTP Method : POST
-    - Description : This method creates a new product. The request body should contain the name of the 'person'
+## Endpoints
 
-- ### Find Person (GET)
-    - Route : `/api/user_id`
-    - HTTP Method : GET
-    - Description : This method retrieves a person from database either by  `name ` or  `id`
+### Get a Person by ID
 
--  ### Modify Person (PUT)
-    - Route : `/api/user_id`
-    - HTTP Method : PUT
-    - Description : This method retrieves a person from database either by  `name ` or  `id` then modifies the `name`
+**Request:**
 
--  ### Delete Person (Delete)
-    - Route : `/api/user_id`
-    - HTTP Method : DELETE
-    - Description : This method removes a person from database either by  `name ` or  `id`.
+```http
+GET /api/1
 
-<a href ="https://lucid.app/lucidchart/c30f517e-3bd1-4e17-a5ea-38be79d2f749/edit?viewport_loc=21%2C-11%2C1579%2C860%2C0_0&invitationId=inv_abce64fd-4d23-443f-b983-2f9834cba86a"> UML Diagram (On Lucid Chart) </a>
-<a href = "https://github.com/ayhameed/HNGi-REST-API/blob/main/DOCUMENTATION.md"> Complete API documentation</a>
-<a href =  ""> Documentation on Postman </a>
+```jason
+{
+  "id": 1,
+  "name": "John Doe"
+}
+
+```
+
+### Update a Person by ID
+**Request:**
+
+```http
+
+PUT /api/1
+Content-Type: application/json
+
+```jason
+{
+  "name": "Jane Smith"
+}  
+```
+**Response (200 OK):**
+
+```json
+{
+  "message": "Person updated successfully"
+}
+```
+
+### Delete a Person by ID
+**Request:**
+
+```http
+
+DELETE /api/1
+**Response (200 OK):**
+```
+
+```json
+Copy code
+{
+  "message": "Person deleted successfully"
+}
+```
