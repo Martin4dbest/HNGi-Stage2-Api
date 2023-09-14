@@ -200,6 +200,34 @@ DELETE /api/persons/1
 
 ```
 
+## Testing
+API endpoints can be tested easily using python script with the requests library to test each CRUD operation:
+
+Create a new person.
+Retrieve details of a person.
+Update the details of an existing person.
+Remove a person.
+Retrieve details of a person by name.
+
+Python script to create a person:
+````
+import requests
+
+url = 'http://localhost:5000/api/person'
+
+data = {
+    "name": "Mark Essien",
+    "age": 35,
+    "email": "mark@example.com"
+}
+
+response = requests.post(url, json=data)
+
+print(response.status_code)
+print(response.json())
+
+```
+
 ## Known Limitations and Assumptions
 This API assumes a SQLite database named persons.db for storing person records.
 Error responses include simple error messages for demonstration purposes.
