@@ -5,9 +5,55 @@
 This API provides endpoints for managing a list of persons. It allows you to create, read, update, and delete persons from the database.
 
 
-## UML and E-R Diagram
+## The UML and E-R Diagram
+ 
++---------------------------------------------+
+|                  Flask App                  |
+|---------------------------------------------|
+| - app: Flask                                |
+| - db: SQLAlchemy                           |
+| - limiter: Limiter                         |
++---------------------------------------------+
+        |
+        | creates
+        |
++---------------------------------------------+
+|                  Person                     |
+|---------------------------------------------|
+| - id: Integer                               |
+| - name: String                              |
+| - age: Integer (optional)                   |
+| - email: String                             |
+|---------------------------------------------|
+| + __init__(name, age, email): Person        |
+| +-------------------------------------------+
+        |
+        | extends
+        |
++---------------------------------------------+
+|                PersonForm                   |
+|---------------------------------------------|
+| - name: StringField                         |
+| - age: IntegerField (optional)              |
+| - email: StringField                        |
+|---------------------------------------------|
+| + validate(): boolean                       |
+| +-------------------------------------------+
+        |
+        | is used by
+        |
++---------------------------------------------+
+|                  Limiter                    |
+|---------------------------------------------|
+| - app: Flask                                |
+| - default_limits: List                      |
+|---------------------------------------------|
+| + limit(rate_limit): Decorator              |
++---------------------------------------------+
 
-![ULM and E-R Diagram](./public/UML.png)
+
+
+
 
 
 ## Base URL
@@ -199,6 +245,9 @@ DELETE /api/persons/1
 }
 
 ```
+
+
+## 
 
 ## Testing
 API endpoints can be tested easily using python script with the requests library to test each CRUD operation:
