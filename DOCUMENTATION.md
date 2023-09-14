@@ -252,8 +252,8 @@ Update the details of an existing person.
 Remove a person.
 Retrieve details of a person by name.
 
-Python script to create a person:
-````
+Python script that creates a person:
+
 import requests
 
 url = 'http://localhost:5000/api/person'
@@ -269,7 +269,7 @@ response = requests.post(url, json=data)
 print(response.status_code)
 print(response.json())
 
-```
+
 
 ## Known Limitations and Assumptions
 This API assumes a SQLite database named persons.db for storing person records.
