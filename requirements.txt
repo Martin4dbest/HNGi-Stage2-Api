@@ -26,7 +26,7 @@ rich==13.5.2
 SQLAlchemy==2.0.20
 typing_extensions==4.7.1
 urllib3==2.0.4
-Werkzeug==2.3.7
+Werkzeug==2.2:3
 wrapt==1.15.0
 WTForm==1.0
 WTForms==3.0.1
