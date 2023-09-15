@@ -1,6 +1,6 @@
 # RESTful Person API
 
-A This is a simple RESTful API for managing person records.
+A This is simple RESTful API for managing person records.
 
 ## Table of Contents
 
